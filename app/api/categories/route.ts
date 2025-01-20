@@ -1,7 +1,7 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import { ICategory } from "../../models/category";
 
-const categories: ICategory[] = []; // Temporary in-memory store
+const categories: ICategory[] = []; 
 
 export default function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method === "GET") {

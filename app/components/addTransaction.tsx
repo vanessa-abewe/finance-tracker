@@ -135,8 +135,8 @@ export default function AddTransactionModal({
       classNames={{
         base: "max-w-2xl mx-auto",
         backdrop: "bg-black/50 backdrop-blur-sm",
-        body: "p-0",  // Remove default padding
-        header: "p-0" // Remove default padding
+        body: "p-0",  
+        header: "p-0" 
       }}
     >
       <ModalContent className="relative bg-white rounded-2xl shadow-xl max-h-[85vh] overflow-hidden">
@@ -144,16 +144,16 @@ export default function AddTransactionModal({
           <>
             <DecorativeCircles />
             
-            {/* Fixed Header */}
+           
             <ModalHeader className="flex flex-col gap-1 text-center p-6 bg-white relative z-10">
               <h2 className="text-2xl font-bold text-gray-900">Add New Transaction</h2>
               <p className="text-gray-400 text-sm">Enter the transaction details below</p>
             </ModalHeader>
             
-            {/* Scrollable Content */}
+            
             <ModalBody className="relative z-10 px-6 pb-6 overflow-y-auto">
               <form onSubmit={handleSubmit} className="space-y-6">
-                {/* Transaction Type */}
+                
                 <div className="space-y-2">
                   <label className="text-sm font-medium text-gray-900">Transaction Type</label>
                   <Select
@@ -180,7 +180,7 @@ export default function AddTransactionModal({
                   </Select>
                 </div>
 
-                {/* Category */}
+               
                 <div className="space-y-2">
                   <label className="text-sm font-medium text-gray-900">Category</label>
                   <Select
@@ -200,7 +200,7 @@ export default function AddTransactionModal({
                   </Select>
                 </div>
 
-                {/* Subcategory */}
+               
                 {formData.category && (
                   <div className="space-y-2">
                     <label className="text-sm font-medium text-gray-900">Subcategory</label>
@@ -224,7 +224,7 @@ export default function AddTransactionModal({
                   </div>
                 )}
 
-                {/* Amount */}
+             
                 <div className="space-y-2">
                   <label className="text-sm font-medium text-gray-900">Amount</label>
                   <Input
@@ -240,7 +240,6 @@ export default function AddTransactionModal({
                   />
                 </div>
 
-                          {/* Account Selection */}
                           <Select
   placeholder="Select account"
   selectedKeys={formData.account ? [formData.account] : []}
@@ -288,7 +287,7 @@ export default function AddTransactionModal({
 )}
 
 
-                {/* Description */}
+             
                 <div className="space-y-2">
                   <label className="text-sm font-medium text-gray-900">Description</label>
                   <FileText className="text-gray-400" size={18} />
@@ -304,7 +303,7 @@ export default function AddTransactionModal({
                   />
                 </div>
 
-                {/* Buttons */}
+                
                 <div className="flex gap-4 pt-4">
                   <Button
                     type="button"

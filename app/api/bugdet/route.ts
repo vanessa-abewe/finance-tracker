@@ -16,7 +16,6 @@ export default async function handler(
   try {
     const { category, period } = req.query;
     
-    // Get current budget
     const budget = await Budget.findOne({
       category,
       period,
@@ -31,9 +30,9 @@ export default async function handler(
       return res.status(404).json({ error: 'No budget found' });
     }
 
-    // Calculate total expenses for the period
+    
     const startOfPeriod = new Date();
-    startOfPeriod.setDate(1); // Start of current month
+    startOfPeriod.setDate(1); 
     
     const totalExpenses = await Transaction.aggregate([
       {

@@ -13,28 +13,28 @@ interface Transaction {
 
 const DecorativeShapes = () => (
   <div className="absolute inset-0 pointer-events-none">
-    {/* Original circle */}
+    
     <div className="absolute top-0 right-0">
       <svg width="400" height="400" viewBox="0 0 200 200">
         <circle cx="150" cy="50" r="100" fill="rgba(51, 234, 149, 0.1)" />
       </svg>
     </div>
     
-    {/* Small squares */}
+  
     <div className="absolute top-20 left-40">
       <svg width="60" height="60" viewBox="0 0 60 60">
         <rect x="10" y="10" width="40" height="40" transform="rotate(15)" fill="rgba(168, 154, 182, 0.36)" />
       </svg>
     </div>
     
-    {/* Triangles */}
+    
     <div className="absolute top-1/3 right-1/4">
       <svg width="80" height="80" viewBox="0 0 80 80">
         <polygon points="40,10 70,70 10,70" fill="rgba(231, 210, 20, 0.4)" />
       </svg>
     </div>
     
-    {/* Small circles cluster */}
+    
     <div className="absolute bottom-1/4 right-1/3">
       <svg width="100" height="100" viewBox="0 0 100 100">
         <circle cx="30" cy="30" r="15" fill="rgba(51, 234, 149, 0.29)" />
@@ -43,7 +43,7 @@ const DecorativeShapes = () => (
       </svg>
     </div>
     
-    {/* Original waves */}
+   
     <div className="absolute bottom-0 left-0">
       <svg width="200" height="100" viewBox="0 0 200 200">
         <path
@@ -53,7 +53,7 @@ const DecorativeShapes = () => (
       </svg>
     </div>
     
-    {/* Diamond shape */}
+    
     <div className="absolute top-1/2 left-20">
       <svg width="70" height="70" viewBox="0 0 70 70">
         <rect x="15" y="15" width="40" height="40" transform="rotate(45 35 35)" fill="rgba(231, 210, 20, 0.35)" />
@@ -72,7 +72,7 @@ const FinanceDashboard = () => {
     budget: 0,
   });
 
-  // Define a reusable function for processing data
+
 const processTransactions = (data: Transaction[]) => {
   const totalIncome = data
     .filter((t) => t.type === 'income')
@@ -84,7 +84,7 @@ const processTransactions = (data: Transaction[]) => {
 
   const totalBalance = totalIncome - totalExpenses;
 
-  // Get latest month transactions
+  
   const latestTransactions = data.filter(
     (t) =>
       new Date(t.date).getMonth() === new Date().getMonth() &&
@@ -103,7 +103,7 @@ const processTransactions = (data: Transaction[]) => {
     totalBalance,
     monthlyIncome,
     monthlyExpenses,
-    budget: totalIncome * 0.8, // Example budget calculation
+    budget: totalIncome * 0.8, 
   };
 };
 const transformForChart = (transactions: Transaction[]) => {
@@ -122,17 +122,13 @@ const transformForChart = (transactions: Transaction[]) => {
     };
   });
 };
-// Fetch transactions from the backend
+
 useEffect(() => {
   const fetchTransactions = async () => {
     try {
       const response = await fetch('/api/transactions');
       const data = await response.json();
       setTransactions(data);
-
-      
-
-      // Process and set stats
       const computedStats = processTransactions(data);
       setStats(computedStats);
     } catch (error) {

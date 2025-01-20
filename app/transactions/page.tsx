@@ -72,10 +72,10 @@ useEffect(() => {
     setFilterDate(e.target.value);
   };
 
-  // Enhance the handleViewDetails function
+ 
 const handleViewDetails = (transaction: Transaction) => {
   setIsLoading(true);
-  // Find the account name for the transaction
+  
   const accountName = accounts.find(acc => acc._id === transaction.account)?.name || transaction.account;
   setSelectedTransaction({...transaction, account: accountName});
   setDetailsModalOpen(true);
@@ -186,7 +186,7 @@ const handleViewDetails = (transaction: Transaction) => {
         </div>
       </div>
 
-      {/* Details Modal */}
+     
    
     </div>
   );

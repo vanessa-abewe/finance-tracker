@@ -25,7 +25,7 @@ const ReportRequestModal = ({ visible, onClose }: ReportRequestModalProps) => {
 
     try {
       setLoading(true);
-      // Convert CalendarDate to JavaScript Date
+      
       const jsStartDate = new Date(startDate.year, startDate.month - 1, startDate.day);
       const jsEndDate = new Date(endDate.year, endDate.month - 1, endDate.day);
 
@@ -37,7 +37,7 @@ const ReportRequestModal = ({ visible, onClose }: ReportRequestModalProps) => {
         responseType: 'blob',
       });
 
-      // Create a download link for the file
+     
       const url = window.URL.createObjectURL(new Blob([response.data]));
       const link = document.createElement('a');
       link.href = url;
