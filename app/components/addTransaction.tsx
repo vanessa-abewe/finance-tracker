@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
 import { toast } from "react-hot-toast";
 import {
   Modal,
@@ -121,11 +123,6 @@ export default function AddTransactionModal({
     }
   };
 
-  const darkModeClasses = {
-    base: "max-w-full",
-    trigger: "h-14 rounded-2xl bg-gray-700/50 border-2 border-purple-500/20 hover:border-purple-500/40 transition-colors",
-    value: "text-lg text-white",
-  };
 
   return (
     <Modal

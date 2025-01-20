@@ -1,3 +1,4 @@
+
 'use client';
 import React, { useState, useEffect } from 'react';
 import { format } from "date-fns";
@@ -6,7 +7,6 @@ import { TrendingUp, TrendingDown } from 'lucide-react';
 
 import Sidebar from '../components/sidebar';
 import AddTransactionModal from '../components/addTransaction';
-import { Modal, ModalHeader, ModalBody, ModalFooter } from '@nextui-org/react';
 
 interface Transaction {
   type: string;
@@ -18,14 +18,13 @@ interface Transaction {
 
 const TransactionsTable = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [detailsModalOpen, setDetailsModalOpen] = useState(false);
+  
   const [transactions, setTransactions] = useState<Transaction[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage] = useState(5);
   const [filterDate, setFilterDate] = useState<string | null>(null);
-  const [selectedTransaction, setSelectedTransaction] = useState<Transaction | null>(null);
  
-  const [isLoading, setIsLoading] = useState(false);
+ 
   const [accounts, setAccounts] = useState<Array<{ _id: string, name: string }>>([]);
 
   
@@ -73,23 +72,9 @@ useEffect(() => {
   };
 
  
-const handleViewDetails = (transaction: Transaction) => {
-  setIsLoading(true);
-  
-  const accountName = accounts.find(acc => acc._id === transaction.account)?.name || transaction.account;
-  setSelectedTransaction({...transaction, account: accountName});
-  setDetailsModalOpen(true);
-  setIsLoading(false);
-};
 
-  const TableSkeleton = () => (
-    <div className="animate-pulse">
-      <div className="h-12 bg-purple-200 mb-4 rounded-lg"></div>
-      {[...Array(5)].map((_, index) => (
-        <div key={index} className="h-16 bg-purple-100 mb-2 rounded-lg"></div>
-      ))}
-    </div>
-  );
+
+  
 
   return (
     <div className="min-h-screen w-full bg-purple-50 py-8 pl-72">
